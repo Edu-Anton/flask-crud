@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-4">    
+        <form action="/update/{{contact.0}}" method="POST">
+          <div class="form-group">
+            <input class="form-control" type="text" name="fullname" value="{{contact.1}}" placeholder="fullname">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="phone" value="{{contact.2}}" placeholder="phone">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="email" value="{{contact.3}}" placeholder="email">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-block" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
+
+
