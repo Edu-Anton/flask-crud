@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{ message }}</p> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-4">    
+        <form action="/add_contact" method="POST">
+          <div class="form-group">
+            <input class="form-control" type="text" name="fullname" placeholder="fullname">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="phone" placeholder="phone">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="email" placeholder="email">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-block" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-8">
+        <table class="table table-bordered">
+          <thead>
+            <th>Fullname</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Operations</th>
+          </thead>
+          <tbody>
+            {% for contact in contacts %}
+            <tr>
+              <td>{{ contact.1 }}</td>
+              <td>{{ contact.2 }}</td>
+              <td>{{ contact.3 }}</td>
+              <td>
+                <a href="/edit/{{contact.0}}" class="btn btn-primary">Edit</a>
+                <a href="/delete/{{contact.0}}" class="btn btn-danger">Delite</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
+
+
